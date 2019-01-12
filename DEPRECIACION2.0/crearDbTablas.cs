@@ -180,20 +180,32 @@ namespace DEPRECIACION2._0
             {
                 //MessageBox.Show("Error: No se creo la tabla USUARIO");
             }
-            
+
+            string usuario = "";
+            string password = "";
+            var query = "SELECT * FROM usuarios";
             obtConexion();
-            str = " INSERT INTO usuarios(CiPersona,usuario,contraseña) VALUES ('11111111','admin','admin')";
-            sql_cmd = new SqlCommand(str, sql_con);
-            try
+            sql_con.Open();
+            using (SqlCommand cmd = new SqlCommand(query, sql_con))
             {
-                sql_con.Open();
-                sql_cmd.ExecuteNonQuery();
+                
+                SqlDataReader read = cmd.ExecuteReader();
+                if (read.HasRows)
+                {
+                    while (read.Read())
+                    {
+                        usuario = read["usuario"].ToString();
+                        password = read["contraseña"].ToString();
+
+                        if (usuario != "admin" && password != "admin")
+                        {
+                            str = " INSERT INTO usuarios(CiPersona,usuario,contraseña) VALUES ('11111111','admin','admin')";
+                            sql_cmd = new SqlCommand(str, sql_con);
+                        }
+
+                    }
+                }
                 sql_con.Close();
-                //    MessageBox.Show("Tabla depreciacion creada");
-            }
-            catch (SqlException)
-            {
-                //MessageBox.Show("Error: No se creo la tabla USUARIO");
             }
 
             obtConexion();

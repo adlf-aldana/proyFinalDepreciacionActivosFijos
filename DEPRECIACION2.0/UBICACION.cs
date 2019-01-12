@@ -28,6 +28,7 @@ namespace DEPRECIACION2._0
         public UBICACION()
         {
             InitializeComponent();
+            bloquearControladores(true);
         }
 
         /********************************
@@ -71,7 +72,7 @@ namespace DEPRECIACION2._0
             DS.Reset();
             DB.Fill(DS);
             DT = DS.Tables[0];
-            ubicacionDataGridView.DataSource = DT;
+            dataGridView1.DataSource = DT;
             sql_con.Close();
         }
 
@@ -81,9 +82,9 @@ namespace DEPRECIACION2._0
         private void UBICACION_Load(object sender, EventArgs e)
         {
             cargarDatos();
-            ubicacionDataGridView.DataSource = DT;
-            ubicacionDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ubicacionDataGridView.MultiSelect = false;
+            dataGridView1.DataSource = DT;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.MultiSelect = false;
         }
 
          /********************************
@@ -92,14 +93,18 @@ namespace DEPRECIACION2._0
          *********************************/
         private Boolean camposCompletos()
         {
-            if (areaTextBox.Text.Equals("") || descripcionUbicacionTextBox.Text.Equals("") )
+            if (areaTextBox.Text.Equals(""))
             {
+                MessageBox.Show("Complete el campo Area");
+                return false;
+            }
+            else if (descripcionUbicacionTextBox.Text.Equals(""))
+            {
+                MessageBox.Show("Complete el campo Descripcion");
                 return false;
             }
             else
-            {
                 return true;
-            }
         }
         
         /************************
@@ -123,23 +128,129 @@ namespace DEPRECIACION2._0
 
         }
 
+        public void bloquearControladores(bool i)
+        {
+            if (i == true)
+            {
+                //Bloqueando
+                areaTextBox.ReadOnly = true; ;
+                descripcionUbicacionTextBox.ReadOnly = true;
+                areaTextBox.Focus();
+            }
+            else
+            {
+                //Desbloqueandp
+                areaTextBox.ReadOnly = false; ;
+                descripcionUbicacionTextBox.ReadOnly = false;
+                areaTextBox.Focus();
+            }
+        }
+
+        char accion = ' ';
+        int c = 0;
         /*****************
          * BOTON GUARDAR
          ****************/
         private void button1_Click(object sender, EventArgs e)
         {
-            if (camposCompletos())
+            if (c == 1)
             {
-                if (MessageBox.Show("¿Esta seguro que desea insertar el registro?", "Insertar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    guardar();
-                    cargarDatos();
-                    ubicacionDataGridView.DataSource = DT;
-                }
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                btnEditar.Name = "Editar";
+                btnEliminar.Visible = true;
+
+                bloquearControladores(true);
+                accion = 'i';
+                //c = 0;
             }
-            else
+            else if (c == 2)
             {
-                MessageBox.Show("VERIFIQUE TODOS LOS CAMPOS DEBEN ESTAR COMPLETOS");
+                accion = 'e';
+            }
+
+            if (c == 0)
+            {
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                btnEditar.Name = "Cancelar";
+                btnEliminar.Visible = false;
+                bloquearControladores(false);
+                c = 1;
+            }
+
+            switch (accion)
+            {
+                case 'i':
+                    {
+                        if (camposCompletos())
+                        {
+                            if (MessageBox.Show("¿Esta seguro que desea insertar el registro?", "Insertar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                                btnEditar.Name = "Editar";
+                                btnEliminar.Visible = true;
+                                
+                                bloquearControladores(true);
+
+                                guardar();
+                                cargarDatos();
+                                dataGridView1.DataSource = DT;
+                            }
+                            else
+                            {
+                                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                                btnEditar.Name = "Cancelar";
+                                btnEliminar.Visible = false;
+                                bloquearControladores(false);
+                                c = 1;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("VERIFIQUE TODOS LOS CAMPOS DEBEN ESTAR CORRECTOS");
+                            btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                            btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                            btnEditar.Name = "Cancelar";
+                            btnEliminar.Visible = false;
+                            bloquearControladores(false);
+                        }
+
+                        c = 0;
+                        break;
+                    }
+                case 'e':
+                    {
+                        if (camposCompletos())
+                        {
+                            if (MessageBox.Show("¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                                btnEditar.Name = "Editar";
+                                btnEliminar.Visible = true;
+
+                                bloquearControladores(true);
+                                c = 0;
+
+                                editar();
+                                cargarDatos();
+                                dataGridView1.DataSource = DT;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("VERIFIQUE TODOS LOS CAMPOS DEBEN ESTAR CORRECTOS");
+                            btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                            btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                            btnEditar.Name = "Cancelar";
+                            btnEliminar.Visible = false;
+                            bloquearControladores(false);
+                        }
+                    }
+                    break;
             }
         }
 
@@ -152,7 +263,7 @@ namespace DEPRECIACION2._0
             {
                 if (editando)
                 {
-                    strCmd = "UPDATE ubicacion SET area='" + areaTextBox.Text + "',descripcionUbicacion='" + descripcionUbicacionTextBox.Text + "' WHERE id_ubicacion=" + ubicacionDataGridView.Rows[ubicacionDataGridView.SelectedRows[0].Index].Cells["id_ubicacion"].Value.ToString() + "";
+                    strCmd = "UPDATE ubicacion SET area='" + areaTextBox.Text + "',descripcionUbicacion='" + descripcionUbicacionTextBox.Text + "' WHERE id_ubicacion=" + dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["id_ubicacion"].Value.ToString() + "";
                     ejecutarConsulta(strCmd);
                     cargarDatos();
                     limpiarTextBox();
@@ -173,11 +284,31 @@ namespace DEPRECIACION2._0
          ****************/
         private void button2_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (btnEditar.Name == "Cancelar")
             {
-                editar();
-                cargarDatos();
-                ubicacionDataGridView.DataSource = DT;
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                btnEliminar.Visible = true;
+            btnEditar.Name = "Editar";
+                bloquearControladores(true);
+                accion = ' ';
+                c = 0;
+                limpiarTextBox();
+            }
+            else if (!(areaTextBox.Text == ""))
+            {
+
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                btnEditar.Name = "Cancelar";
+                btnEliminar.Visible = false;
+
+                bloquearControladores(false);
+                c = 2;
+            }
+            else
+            {
+                MessageBox.Show("Elija el elemento que desea editar");
             }
         }
 
@@ -192,7 +323,7 @@ namespace DEPRECIACION2._0
         {
             try
             {
-                strCmd = "DELETE FROM ubicacion WHERE area='" + ubicacionDataGridView.Rows[ubicacionDataGridView.SelectedRows[0].Index].Cells["area"].Value.ToString() + "'" + "AND id_ubicacion='" + ubicacionDataGridView.Rows[ubicacionDataGridView.SelectedRows[0].Index].Cells["id_ubicacion"].Value.ToString() + "'";
+                strCmd = "DELETE FROM ubicacion WHERE area='" + dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["area"].Value.ToString() + "'" + "AND id_ubicacion='" + dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["id_ubicacion"].Value.ToString() + "'";
                 ejecutarConsulta(strCmd);
                 MessageBox.Show("ELIMINADO CORRECTAMENTE", "Advertencia");
                 return true;
@@ -209,11 +340,21 @@ namespace DEPRECIACION2._0
          ******************/
         private void button3_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Esta seguro que desea eliminar el registro?", "Eliminar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (!(areaTextBox.Text == ""))
             {
-                borrar();
-                cargarDatos();
-                ubicacionDataGridView.DataSource = DT;
+                if (MessageBox.Show("¿Esta seguro que desea eliminar el registro?", "Eliminar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    borrar();
+                    cargarDatos();
+                    dataGridView1.DataSource = DT;
+                    c = 0;
+                    limpiarTextBox();
+                    accion = ' ';
+                }
+            }
+            else
+            {
+                MessageBox.Show("Elija el elemento que desea eliminar");
             }
         }
 
@@ -240,12 +381,27 @@ namespace DEPRECIACION2._0
          ************************************/
         private void ubicacionDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (ubicacionDataGridView.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 editando = true;
-                areaTextBox.Text = ubicacionDataGridView.Rows[ubicacionDataGridView.SelectedRows[0].Index].Cells["area"].Value.ToString();
-                descripcionUbicacionTextBox.Text = ubicacionDataGridView.Rows[ubicacionDataGridView.SelectedRows[0].Index].Cells["descripcionUbicacion"].Value.ToString();
+                areaTextBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["area"].Value.ToString();
+                descripcionUbicacionTextBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["descripcionUbicacion"].Value.ToString();
             }
+        }
+
+        private void UBICACION_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void UBICACION_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void UBICACION_KeyUp(object sender, KeyEventArgs e)
+        {
+            
         }
 
         

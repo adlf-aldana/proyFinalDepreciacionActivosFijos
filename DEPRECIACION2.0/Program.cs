@@ -7,7 +7,6 @@ namespace DEPRECIACION2._0
 {
     static class Program
     {
-        static bool i = true;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +15,8 @@ namespace DEPRECIACION2._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new LOGIN());
+                //Application.Run(new LOGIN());
+            Application.Run(new LOGIN());
         }
     }
 }

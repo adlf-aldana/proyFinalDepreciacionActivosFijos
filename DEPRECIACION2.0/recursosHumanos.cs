@@ -28,6 +28,7 @@ namespace DEPRECIACION2._0
         public recursosHumanos()
         {
             InitializeComponent();
+            bloquearControladores(true);
         }
         /********************************
          * OBTIENE LA CONEXION CON LA BD
@@ -64,7 +65,7 @@ namespace DEPRECIACION2._0
             DS.Reset();
             DB.Fill(DS);
             DT = DS.Tables[0];
-            recursosHumanosDataGridView.DataSource = DT;
+            dataGridView1.DataSource = DT;
             sql_con.Close();
         }
 
@@ -97,6 +98,7 @@ namespace DEPRECIACION2._0
             }
         }
 
+        
         /************************
          * INSERTA DATOS A LA BD
          ************************/
@@ -126,27 +128,151 @@ namespace DEPRECIACION2._0
             catch (SqlException)
             {
                 MessageBox.Show("ERROR: REGISTRO NO INSERTADO", "Error");
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                btnEditar.Name = "Cancelar";
+                btnEliminar.Visible = false;
+                bloquearControladores(false);
+                c = 1;
                 return false;
             }
 
         }
 
+        public void bloquearControladores(bool i)
+        {
+            if (i == true)
+            {
+                //Bloqueando
+                ciPersonalTextBox.ReadOnly = true;
+                nombresTextBox.ReadOnly = true;
+                apellidoPatTextBox.ReadOnly = true;
+                apellidoMatTextBox.ReadOnly = true;
+                dirTextBox.ReadOnly = true;
+                profesTextBox.ReadOnly = true;
+                emailTextBox.ReadOnly = true;
+                ciPersonalTextBox.Focus();
+            }
+            else
+            {
+                //Desbloqueandp
+                ciPersonalTextBox.ReadOnly = false;
+                nombresTextBox.ReadOnly = false;
+                apellidoPatTextBox.ReadOnly = false;
+                apellidoMatTextBox.ReadOnly = false;
+                dirTextBox.ReadOnly = false;
+                profesTextBox.ReadOnly = false;
+                emailTextBox.ReadOnly = false;
+                ciPersonalTextBox.Focus();
+            }
+        }
+
+
+        char accion = ' ';
+        int c = 0;
         /****************
          * BOTON GUARDAR
          ***************/
         private void button1_Click(object sender, EventArgs e)
         {
-            if (camposCompletos())
+            if (c == 1)
             {
-                if (MessageBox.Show("¿Esta seguro que desea insertar el registro?", "Insertar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    guardar();
-                    cargarDatos();
-                }
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                btnEditar.Name = "Editar";
+                btnEliminar.Visible = true;
+
+                bloquearControladores(true);
+                accion = 'i';
+                //c = 0;
             }
-            else
+            else if (c == 2)
             {
-                MessageBox.Show("VERIFIQUE TODOS LOS CAMPOS DEBEN ESTAR COMPLETOS");
+                accion = 'e';
+            }
+
+            if (c == 0)
+            {
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                btnEditar.Name = "Cancelar";
+                btnEliminar.Visible = false;
+                bloquearControladores(false);
+                c = 1;
+            }
+
+            switch (accion)
+            {
+                case 'i':
+                    {
+                        if (camposCompletos())
+                        {
+                            if (MessageBox.Show("¿Esta seguro que desea insertar el registro?", "Insertar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                                btnEditar.Name = "Editar";
+                                btnEliminar.Visible = true;
+
+                                bloquearControladores(true);
+
+                                guardar();
+                                cargarDatos();
+                                dataGridView1.DataSource = DT;
+                            }
+                            else
+                            {
+                                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                                btnEditar.Name = "Cancelar";
+                                btnEliminar.Visible = false;
+                                bloquearControladores(false);
+                                c = 1;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("VERIFIQUE TODOS LOS CAMPOS DEBEN ESTAR CORRECTOS");
+                            btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                            btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                            btnEditar.Name = "Cancelar";
+                            btnEliminar.Visible = false;
+                            bloquearControladores(false);
+                        }
+
+                        c = 0;
+                        break;
+                    }
+                case 'e':
+                    {
+                        if (camposCompletos())
+                        {
+                            if (MessageBox.Show("¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                                btnEditar.Name = "Editar";
+                                btnEliminar.Visible = true;
+
+                                bloquearControladores(true);
+                                c = 0;
+
+                                editar();
+                                cargarDatos();
+                                dataGridView1.DataSource = DT;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("VERIFIQUE TODOS LOS CAMPOS DEBEN ESTAR CORRECTOS");
+                            btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                            btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                            btnEditar.Name = "Cancelar";
+                            btnEliminar.Visible = false;
+                            bloquearControladores(false);
+                        }
+                    }
+                    break;
             }
         }
 
@@ -194,7 +320,7 @@ namespace DEPRECIACION2._0
             {
                 if (editando)
                 {
-                    strCmd = "UPDATE recursosHumanos SET CiPersonal='" + ciPersonalTextBox.Text + "',Nombres='" + nombresTextBox.Text + "',ApellidoPat='" + apellidoPatTextBox.Text + "',ApellidoMat='" + apellidoMatTextBox.Text + "',Dir='" + dirTextBox.Text + "',Profes='" + profesTextBox.Text + "',Email='" + emailTextBox.Text + "',Cargo='" + cargoComboBox.Text + "',procedencia='" + procedenciaComboBox.Text + "',Sexo='" + sexoComboBox.Text + "' WHERE CiPersonal=" + recursosHumanosDataGridView.Rows[recursosHumanosDataGridView.SelectedRows[0].Index].Cells["CiPersonal"].Value.ToString() + "";
+                    strCmd = "UPDATE recursosHumanos SET CiPersonal='" + ciPersonalTextBox.Text + "',Nombres='" + nombresTextBox.Text + "',ApellidoPat='" + apellidoPatTextBox.Text + "',ApellidoMat='" + apellidoMatTextBox.Text + "',Dir='" + dirTextBox.Text + "',Profes='" + profesTextBox.Text + "',Email='" + emailTextBox.Text + "',Cargo='" + cargoComboBox.Text + "',procedencia='" + procedenciaComboBox.Text + "',Sexo='" + sexoComboBox.Text + "' WHERE CiPersonal=" + dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["CiPersonal"].Value.ToString() + "";
                     ejecutarConsulta(strCmd);
                     MessageBox.Show("REGISTRO EDITADO EXITOSAMENTE", "Aviso");
                     editando = false;
@@ -220,7 +346,7 @@ namespace DEPRECIACION2._0
         {
             try
             {
-                strCmd = "delete from recursosHumanos WHERE idCliente='" + recursosHumanosDataGridView.Rows[recursosHumanosDataGridView.SelectedRows[0].Index].Cells["idCliente"].Value.ToString() + "'" + "AND CiPersonal='" + recursosHumanosDataGridView.Rows[recursosHumanosDataGridView.SelectedRows[0].Index].Cells["CiPersonal"].Value.ToString() + "'";
+                strCmd = "delete from recursosHumanos WHERE idCliente='" + dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["idCliente"].Value.ToString() + "'" + "AND CiPersonal='" + dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["CiPersonal"].Value.ToString() + "'";
                 ejecutarConsulta(strCmd);
                 MessageBox.Show("ELIMINADO CORRECTAMENTE", "Advertencia");
                 return true;
@@ -336,9 +462,9 @@ namespace DEPRECIACION2._0
         private void recursosHumanos_Load_1(object sender, EventArgs e)
         {
             cargarDatos();
-            recursosHumanosDataGridView.DataSource = DT;
-            recursosHumanosDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            recursosHumanosDataGridView.MultiSelect = false;
+            dataGridView1.DataSource = DT;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.MultiSelect = false;
         }
 
         
@@ -351,7 +477,10 @@ namespace DEPRECIACION2._0
             {
                 borrar();
                 cargarDatos();
-                recursosHumanosDataGridView.DataSource = DT;
+                dataGridView1.DataSource = DT;
+                c = 0;
+                limpiarTextBox();
+                accion = ' ';
             }
         }
 
@@ -364,12 +493,31 @@ namespace DEPRECIACION2._0
          ***************/
         private void button2_Click_1(object sender, EventArgs e)
         {
-            
-            if (MessageBox.Show("¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (btnEditar.Name == "Cancelar")
             {
-                editar();
-                cargarDatos();
-                recursosHumanosDataGridView.DataSource = DT;
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                btnEliminar.Visible = true;
+                btnEditar.Name = "Editar";
+                bloquearControladores(true);
+                accion = ' ';
+                c = 0;
+                limpiarTextBox();
+            }
+            else if (!(ciPersonalTextBox.Text == ""))
+            {
+
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                btnEditar.Name = "Cancelar";
+                btnEliminar.Visible = false;
+
+                bloquearControladores(false);
+                c = 2;
+            }
+            else
+            {
+                MessageBox.Show("Elija el elemento que desea editar");
             }
         }
 
@@ -399,16 +547,16 @@ namespace DEPRECIACION2._0
          ************************************/
         private void recursosHumanosDataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (recursosHumanosDataGridView.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
                 editando = true;
-                ciPersonalTextBox.Text = recursosHumanosDataGridView.Rows[recursosHumanosDataGridView.SelectedRows[0].Index].Cells["CiPersonal"].Value.ToString();
-                nombresTextBox.Text = recursosHumanosDataGridView.Rows[recursosHumanosDataGridView.SelectedRows[0].Index].Cells["Nombres"].Value.ToString();
-                apellidoPatTextBox.Text = recursosHumanosDataGridView.Rows[recursosHumanosDataGridView.SelectedRows[0].Index].Cells["ApellidoPat"].Value.ToString();
-                apellidoMatTextBox.Text = recursosHumanosDataGridView.Rows[recursosHumanosDataGridView.SelectedRows[0].Index].Cells["ApellidoMat"].Value.ToString();
-                dirTextBox.Text = recursosHumanosDataGridView.Rows[recursosHumanosDataGridView.SelectedRows[0].Index].Cells["Dir"].Value.ToString();
-                profesTextBox.Text = recursosHumanosDataGridView.Rows[recursosHumanosDataGridView.SelectedRows[0].Index].Cells["Profes"].Value.ToString();
-                emailTextBox.Text = recursosHumanosDataGridView.Rows[recursosHumanosDataGridView.SelectedRows[0].Index].Cells["Email"].Value.ToString();
+                ciPersonalTextBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["CiPersonal"].Value.ToString();
+                nombresTextBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Nombres"].Value.ToString();
+                apellidoPatTextBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["ApellidoPat"].Value.ToString();
+                apellidoMatTextBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["ApellidoMat"].Value.ToString();
+                dirTextBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Dir"].Value.ToString();
+                profesTextBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Profes"].Value.ToString();
+                emailTextBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Email"].Value.ToString();
 
             }
         }

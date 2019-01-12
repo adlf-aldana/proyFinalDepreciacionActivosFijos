@@ -38,18 +38,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.pxbEditar = new System.Windows.Forms.PictureBox();
-            this.pxbEliminar = new System.Windows.Forms.PictureBox();
-            this.pxbGuardar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pxbEditar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pxbEliminar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pxbGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +72,7 @@
             this.txtAnios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtAnios.FormattingEnabled = true;
             this.txtAnios.Items.AddRange(new object[] {
+            "0",
             "4",
             "5",
             "8",
@@ -145,8 +140,9 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(512, 480);
+            this.dataGridView1.Size = new System.Drawing.Size(488, 480);
             this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -160,81 +156,6 @@
             this.label5.Size = new System.Drawing.Size(293, 29);
             this.label5.TabIndex = 27;
             this.label5.Text = "GESTION DE RUBROS ";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(70, 414);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 15);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Guardar";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(333, 414);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 15);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Eliminar";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(201, 414);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(45, 15);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Editar";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // pxbEditar
-            // 
-            this.pxbEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pxbEditar.Image = global::DEPRECIACION2._0.Properties.Resources.editar;
-            this.pxbEditar.Location = new System.Drawing.Point(178, 312);
-            this.pxbEditar.Margin = new System.Windows.Forms.Padding(2);
-            this.pxbEditar.Name = "pxbEditar";
-            this.pxbEditar.Size = new System.Drawing.Size(100, 100);
-            this.pxbEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pxbEditar.TabIndex = 34;
-            this.pxbEditar.TabStop = false;
-            this.pxbEditar.Click += new System.EventHandler(this.pxbEditar_Click);
-            // 
-            // pxbEliminar
-            // 
-            this.pxbEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pxbEliminar.Image = global::DEPRECIACION2._0.Properties.Resources.eliminar;
-            this.pxbEliminar.Location = new System.Drawing.Point(314, 312);
-            this.pxbEliminar.Margin = new System.Windows.Forms.Padding(2);
-            this.pxbEliminar.Name = "pxbEliminar";
-            this.pxbEliminar.Size = new System.Drawing.Size(100, 100);
-            this.pxbEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pxbEliminar.TabIndex = 32;
-            this.pxbEliminar.TabStop = false;
-            this.pxbEliminar.Click += new System.EventHandler(this.pxbEliminar_Click);
-            // 
-            // pxbGuardar
-            // 
-            this.pxbGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pxbGuardar.Image = global::DEPRECIACION2._0.Properties.Resources.guardar;
-            this.pxbGuardar.Location = new System.Drawing.Point(45, 312);
-            this.pxbGuardar.Margin = new System.Windows.Forms.Padding(2);
-            this.pxbGuardar.Name = "pxbGuardar";
-            this.pxbGuardar.Size = new System.Drawing.Size(100, 100);
-            this.pxbGuardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pxbGuardar.TabIndex = 30;
-            this.pxbGuardar.TabStop = false;
-            this.pxbGuardar.Click += new System.EventHandler(this.pxbGuardar_Click);
             // 
             // pictureBox1
             // 
@@ -260,18 +181,54 @@
             this.panel1.Size = new System.Drawing.Size(1034, 32);
             this.panel1.TabIndex = 38;
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackgroundImage = global::DEPRECIACION2._0.Properties.Resources.agregar;
+            this.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAgregar.Location = new System.Drawing.Point(33, 299);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(100, 120);
+            this.btnAgregar.TabIndex = 3;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.pxbGuardar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackgroundImage = global::DEPRECIACION2._0.Properties.Resources.editar;
+            this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnEditar.Location = new System.Drawing.Point(166, 299);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(100, 120);
+            this.btnEditar.TabIndex = 4;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.pxbEditar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackgroundImage = global::DEPRECIACION2._0.Properties.Resources.eliminar;
+            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnEliminar.Location = new System.Drawing.Point(302, 299);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(100, 120);
+            this.btnEliminar.TabIndex = 5;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.pxbEliminar_Click);
+            // 
             // RUBROS2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 688);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.pxbEditar);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.pxbEliminar);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.pxbGuardar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCoeficiente);
@@ -287,9 +244,6 @@
             this.Text = "RUBROS2";
             this.Load += new System.EventHandler(this.RUBROS2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pxbEditar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pxbEliminar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pxbGuardar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -308,13 +262,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pxbGuardar;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pxbEliminar;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pxbEditar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

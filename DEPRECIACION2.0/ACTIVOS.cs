@@ -29,6 +29,9 @@ namespace DEPRECIACION2._0
         public ACTIVOS()
         {
             InitializeComponent();
+            //VALIDANDO FECHA
+            dtpFecha.MaxDate = DateTime.Today;
+            bloquearControladores(true);
         }
 
         /********************************
@@ -162,21 +165,15 @@ namespace DEPRECIACION2._0
             }
         }
 
-
-
-
-
         private void button2_Click(object sender, EventArgs e)
         {}
 
-       
         string respuesta;
         /***********************
          * CLASE SELCCIONA RUBRO
          ***********************/
         public string SeleccionarRubro()
         {
-
             var query = "SELECT id_rubro FROM rubro WHERE descripcion='" + txtCodRubro.Text + "'";
             obtConexion();
             sql_con.Open();
@@ -242,17 +239,13 @@ namespace DEPRECIACION2._0
         }
 
         private void button5_Click(object sender, EventArgs e)
-        {}
-
-        private void pxbAgregar_Click(object sender, EventArgs e)
-        {}
+        { }
 
         /*********************
          * LIMPIA LOS TEXTBOX
          ********************/
         public void limpiarTextBox()
         {
-            txtCodActivo.Text = "";
             txtDescripActivo.Text = "";
             txtMarca.Text = "";
             txtColor.Text = "";
@@ -261,11 +254,165 @@ namespace DEPRECIACION2._0
             txtDescripActivo.Focus();
         }
 
+        public void bloquearControladores(bool i)
+        {
+            if (i == true)
+            {
+                //Bloqueando
+                txtCodRubro.Enabled = false;
+                txtCodActivo.ReadOnly = true;
+                txtDescripActivo.ReadOnly = true;
+                txtMarca.ReadOnly = true;
+                txtColor.ReadOnly = true;
+                txtProcedencia.ReadOnly = true;
+                txtValorCompra.ReadOnly = true;
+                txtDescripActivo.ReadOnly = true;
+                dtpFecha.Enabled = false;
+                cmbEstado.Enabled = false;
+            }
+            else
+            {
+                //Desbloqueandp
+                txtCodRubro.Enabled = true;
+                txtCodActivo.ReadOnly = false;
+                txtDescripActivo.ReadOnly = false;
+                txtMarca.ReadOnly = false;
+                txtColor.ReadOnly = false;
+                txtProcedencia.ReadOnly = false;
+                txtValorCompra.ReadOnly = false;
+                txtDescripActivo.ReadOnly = false;
+                dtpFecha.Enabled = true;
+                cmbEstado.Enabled = true;
+            }
+        }
+
+        char accion = ' ';
+        int c = 0;
         /****************
          * BOTON GUARDAR
          ****************/
         private void pxbGuardar_Click(object sender, EventArgs e)
         {
+            if (c == 1)
+            {
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                btnEditar.Name = "Editar";
+                btnEliminar.Visible = true;
+
+                bloquearControladores(true);
+                accion = 'i';
+                //c = 0;
+            }
+            else if (c == 2)
+            {
+                accion = 'e';
+            }
+
+            if (c == 0)
+            {
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                btnEditar.Name = "Cancelar";
+                btnEliminar.Visible = false;
+                bloquearControladores(false);
+                c = 1;
+            }
+
+            switch (accion)
+            {
+                case 'i':
+                    {
+                        if (camposCompletos())
+                        {
+                            if (MessageBox.Show("¿Esta seguro que desea insertar el registro?", "Insertar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                                btnEditar.Name = "Editar";
+                                btnEliminar.Visible = true;
+
+                                bloquearControladores(true);
+
+                                guardar();
+                                cargarDatos();
+                                dataGridView1.DataSource = DT;
+                            }
+                            else
+                            {
+                                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                                btnEditar.Name = "Cancelar";
+                                btnEliminar.Visible = false;
+                                bloquearControladores(false);
+                                c = 1;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("VERIFIQUE TODOS LOS CAMPOS DEBEN ESTAR CORRECTOS");
+                            btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                            btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                            btnEditar.Name = "Cancelar";
+                            btnEliminar.Visible = false;
+                            bloquearControladores(false);
+                        }
+
+                        c = 0;
+                        break;
+                    }
+                case 'e':
+                    {
+                        if (camposCompletos())
+                        {
+                            if (MessageBox.Show("¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                                btnEditar.Name = "Editar";
+                                btnEliminar.Visible = true;
+
+                                bloquearControladores(true);
+                                c = 0;
+
+                                editar();
+                                cargarDatos();
+                                dataGridView1.DataSource = DT;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("VERIFIQUE TODOS LOS CAMPOS DEBEN ESTAR CORRECTOS");
+                            btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                            btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                            btnEditar.Name = "Cancelar";
+                            btnEliminar.Visible = false;
+                            bloquearControladores(false);
+                        }
+                    }
+                    break;
+            }
+        }
+                   /*
+                        if (MessageBox.Show("¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            if (textBox2.Text != textBox3.Text)
+                                MessageBox.Show("Las contraseñas deben ser iguales");
+                            else
+                            {
+                                editar();
+                                cargarDatos();
+                                dataGridView1.DataSource = DT;
+                            }
+                        }
+
+                        break;
+                    }
+                        
+            }
+            accion = ' ';*/
+
+            /*
             if (camposCompletos())
             {
                 if (MessageBox.Show("¿Esta seguro que desea insertar el registro?", "Insertar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -278,8 +425,8 @@ namespace DEPRECIACION2._0
             else
             {
                 MessageBox.Show("VERIFIQUE TODOS LOS CAMPOS DEBEN ESTAR CORRECTOS");
-            }
-        }
+            }*/
+        
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {}
@@ -311,12 +458,18 @@ namespace DEPRECIACION2._0
          ******************/
         private void pxbEliminar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Esta seguro que desea eliminar el registro?", "Eliminar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (camposCompletos())
             {
-                borrar();
-                cargarDatos();
-                dataGridView1.DataSource = DT;
+                if (MessageBox.Show("¿Esta seguro que desea eliminar el registro?", "Eliminar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    borrar();
+                    cargarDatos();
+                    dataGridView1.DataSource = DT;
+                    limpiarTextBox();
+                }
             }
+            else
+                MessageBox.Show("Seleccione el dato que desea eliminar");
         }
         
         /************************************
@@ -324,11 +477,17 @@ namespace DEPRECIACION2._0
          ************************************/ 
         private Boolean editar()
         {
+            string dia = dtpFecha.Value.Date.Day.ToString();
+            string mes = dtpFecha.Value.Date.Month.ToString();
+            string anio = dtpFecha.Value.Date.Year.ToString();
+            //string fecha = anio +"/"+ mes +"/"+ dia;
+            string fecha = dia + "/" + mes + "/" + anio;
+
             try
             {
                 if (editando)
                 {
-                    strCmd = "UPDATE activoFijo SET ID_RUBRO=" + txtRubro.Text + ",CODIGO_ACTIVO=" + txtCodActivo.Text + ",DESCRIPCION='" + txtDescripActivo.Text + "',MARCA='" + txtMarca.Text + "',PROCEDENCIA='" + txtProcedencia.Text + "',COLOR='" + txtColor.Text + "',FECHA_COMPRA='" + dtpFecha.Value.TimeOfDay.ToString() + "',VALOR_COMPRA=" + txtValorCompra.Text + ",ESTADO='" + cmbEstado.Text + "' WHERE ID_ACTIVO=" + dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["ID_ACTIVO"].Value.ToString() + "";
+                    strCmd = "UPDATE activoFijo SET ID_RUBRO=" + txtRubro.Text + ",CODIGO_ACTIVO=" + txtCodActivo.Text + ",DESCRIPCION='" + txtDescripActivo.Text + "',MARCA='" + txtMarca.Text + "',PROCEDENCIA='" + txtProcedencia.Text + "',COLOR='" + txtColor.Text + "',FECHA_COMPRA='" + fecha +"',VALOR_COMPRA=" + txtValorCompra.Text + ",ESTADO='" + cmbEstado.Text + "' WHERE ID_ACTIVO=" + dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["ID_ACTIVO"].Value.ToString() + "";
                     ejecutarConsulta(strCmd);
                     limpiarTextBox();
                     MessageBox.Show("REGISTRO EDITADO EXITOSAMENTE", "Aviso");
@@ -350,12 +509,39 @@ namespace DEPRECIACION2._0
          ***************/
         private void pxbEditar_Click(object sender, EventArgs e)
         {
+            if (btnEditar.Name == "Cancelar")
+            {
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                btnEliminar.Visible = true;
+                btnEditar.Name = "Editar";
+                bloquearControladores(true);
+                accion = ' ';
+                c = 0;
+                limpiarTextBox();
+            }
+            else if (!(txtDescripActivo.Text == ""))
+            {
+
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                btnEditar.Name = "Cancelar";
+                btnEliminar.Visible = false;
+
+                bloquearControladores(false);
+                c = 2;
+            }
+            else
+            {
+                MessageBox.Show("Elija el elemento que desea editar");
+            }
+            /*
             if (MessageBox.Show("¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 editar();
                 cargarDatos();
                 dataGridView1.DataSource = DT;
-            }
+            }*/
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -404,6 +590,9 @@ namespace DEPRECIACION2._0
             }
         }
 
-        
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

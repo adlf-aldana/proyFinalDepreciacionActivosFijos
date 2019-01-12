@@ -17,17 +17,13 @@ namespace DEPRECIACION2._0
 
         private SqlConnection sql_con;
         private SqlCommand sql_cmd;
-        private SqlDataAdapter DA;
-        private DataSet DS = new DataSet();
-        private DataTable DT = new DataTable();
-        private DataTable DT1 = new DataTable();
 
-        private String strCmd;
-        private Boolean editando;
         public LOGIN()
         {
             InitializeComponent();
+            
             crearDbTablas cdt = new crearDbTablas();
+            
             if (!creadoDB)
             {
                 cdt.creacion();
@@ -47,12 +43,15 @@ namespace DEPRECIACION2._0
             }
         }
 
+        /*****************************
+         * RECUPERA DATOS DE LA BD 
+         * Y COMPRUEBA QUE EL USUARIO 
+         * Y LA CONTRASEÑA EXISTAN
+         *****************************/
         string usuario;
         string pasword;
         public void recuperarCampos()
         {
-            
-            
             var query = "SELECT * FROM usuarios";
             obtConexion();
             sql_con.Open();
@@ -66,37 +65,28 @@ namespace DEPRECIACION2._0
                     {
                         usuario = read["usuario"].ToString();
                         pasword= read["contraseña"].ToString();
+
+                        if (usuario == textBox1.Text && pasword == textBox2.Text)
+                        {
+                            Form1 abrir = new Form1();
+                            abrir.Show();
+                        }
+                        
                     }
-                   
                 }
                 else
                 {
-                    MessageBox.Show("USUARIO O CONTRASEÑA INCORRECTA"+usuario.ToString());
-                    MessageBox.Show("USUARIO O CONTRASEÑA INCORRECTA"+pasword.ToString());
-                    MessageBox.Show("USUARIO O CONTRASEÑA INCORRECTA");
+                    MessageBox.Show("Error: USUARIO O CONTRASEÑA NO EXISTE!");
                     textBox1.Clear();
                     textBox2.Clear();
-                    
-                }
-                if (usuario == textBox1.Text && pasword == textBox2.Text)
-                {
-                    Form1 abrir = new Form1();
-                    abrir.Show();
-
-                }
-
-                else
-                {
-                    MessageBox.Show("USUARIO O  INCORRECTA" + usuario.ToString());
-                    MessageBox.Show("USUARIO O  INCORRECTA" + pasword.ToString());
-                    MessageBox.Show("Error de usuario o contraseña");
                 }
             }
-
-           
-
             sql_con.Close();
         }
+
+        /****************
+         * BOTON ENTRAR
+         ****************/
         private void button1_Click(object sender, EventArgs e)
         {
             recuperarCampos();

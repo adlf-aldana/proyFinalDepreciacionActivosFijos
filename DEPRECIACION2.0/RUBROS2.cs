@@ -30,6 +30,7 @@ namespace DEPRECIACION2._0
         public RUBROS2()
         {
             InitializeComponent();
+            bloquearControladores(true);
         }
 
         /********************************
@@ -75,14 +76,17 @@ namespace DEPRECIACION2._0
          *********************************/
         private Boolean camposCompletos()
         {
-            if (txtDescripcion.Text.Equals("") || txtAnios.Text.Equals("") || txtCoeficiente.Text.Equals(""))
+            if (txtDescripcion.Text.Equals(""))
             {
+                MessageBox.Show("Falta completar el campo Descripción");
                 return false;
             }
-            else
+            else if (txtAnios.Text.Equals(""))
             {
+                MessageBox.Show("Seleccione año de vida util");
+                return false;
+            }else
                 return true;
-            }
         }
 
         /************************
@@ -197,11 +201,12 @@ namespace DEPRECIACION2._0
             int valor;
             string texto=txtAnios.Text;
             bool ok = int.TryParse(texto, out valor);
+            /*
             if (!ok)
             {
-                MessageBox.Show("ERROR: VALOR INCORRECTO!");
-                txtAnios.Text = "";
-            }            
+                //MessageBox.Show("ERROR: VALOR INCORRECTO!");
+                txtAnios.Items.Clear();
+            } */           
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -212,10 +217,10 @@ namespace DEPRECIACION2._0
          ******************************************/
         public void limpiarTextBox()
         {
-            txtDescripcion.Text = "";
-            txtAnios.Text = "";
-            txtCoeficiente.Text = "";
-            txtDescripcion.Focus();
+            txtDescripcion.Clear();
+            txtAnios.SelectedIndex = 0;
+            txtCoeficiente.Clear();
+            btnAgregar.Focus();
         }
 
         private void pxbAgregar_Click(object sender, EventArgs e)
@@ -226,23 +231,127 @@ namespace DEPRECIACION2._0
             txtDescripcion.Focus();
         }
 
+        public void bloquearControladores(bool i)
+        {
+            if (i == true)
+            {
+                //Bloqueando
+                txtDescripcion.ReadOnly = true;
+                txtAnios.Enabled = false;
+            }
+            else
+            {
+                //Desbloqueandp
+                txtAnios.Enabled = true;
+                txtDescripcion.ReadOnly = false;
+            }
+        }
+
+        char accion = ' ';
+        int c = 0;
         /*****************
          * BOTON GUARDAR
          *****************/
         private void pxbGuardar_Click(object sender, EventArgs e)
         {
-            if (camposCompletos())
+            if (c == 1)
             {
-                if (MessageBox.Show("¿Esta seguro que desea insertar el registro?", "Insertar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    guardar();
-                    cargarDatos();
-                    dataGridView1.DataSource = DT;
-                }
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                btnEditar.Name = "Editar";
+                btnEliminar.Visible = true;
+
+                bloquearControladores(true);
+                accion = 'i';
+                //c = 0;
             }
-            else
+            else if (c == 2)
             {
-                MessageBox.Show("VERIFIQUE TODOS LOS CAMPOS DEBEN ESTAR COMPLETOS");
+                accion = 'e';
+            }
+
+            if (c == 0)
+            {
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                btnEditar.Name = "Cancelar";
+                btnEliminar.Visible = false;
+                bloquearControladores(false);
+                c = 1;
+            }
+
+            switch (accion)
+            {
+                case 'i':
+                    {
+                        if (camposCompletos())
+                        {
+                            if (MessageBox.Show("¿Esta seguro que desea insertar el registro?", "Insertar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                                btnEditar.Name = "Editar";
+                                btnEliminar.Visible = true;
+
+                                bloquearControladores(true);
+
+                                guardar();
+                                cargarDatos();
+                                dataGridView1.DataSource = DT;
+                            }
+                            else
+                            {
+                                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                                btnEditar.Name = "Cancelar";
+                                btnEliminar.Visible = false;
+                                bloquearControladores(false);
+                                c = 1;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("VERIFIQUE TODOS LOS CAMPOS DEBEN ESTAR CORRECTOS");
+                            btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                            btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                            btnEditar.Name = "Cancelar";
+                            btnEliminar.Visible = false;
+                            bloquearControladores(false);
+                        }
+
+                        c = 0;
+                        break;
+                    }
+                case 'e':
+                    {
+                        if (camposCompletos())
+                        {
+                            if (MessageBox.Show("¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                                btnEditar.Name = "Editar";
+                                btnEliminar.Visible = true;
+
+                                bloquearControladores(true);
+                                c = 0;
+
+                                editar();
+                                cargarDatos();
+                                dataGridView1.DataSource = DT;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("VERIFIQUE TODOS LOS CAMPOS DEBEN ESTAR CORRECTOS");
+                            btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                            btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                            btnEditar.Name = "Cancelar";
+                            btnEliminar.Visible = false;
+                            bloquearControladores(false);
+                        }
+                    }
+                    break;
             }
         }
 
@@ -251,12 +360,20 @@ namespace DEPRECIACION2._0
          *****************/
         private void pxbEliminar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Esta seguro que desea eliminar el registro?", "Eliminar registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (txtDescripcion.Text != "")
             {
-                borrar();
-                cargarDatos();
-                dataGridView1.DataSource = DT;
+                if (MessageBox.Show("¿Esta seguro que desea eliminar " + txtDescripcion.Text + "?", "Eliminar registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    borrar();
+                    cargarDatos();
+                    dataGridView1.DataSource = DT;
+                }
             }
+            else
+            {
+                MessageBox.Show("Seleccione el dato que quiere eliminar");
+            }
+
         }
 
         /*****************
@@ -264,11 +381,31 @@ namespace DEPRECIACION2._0
          *****************/
         private void pxbEditar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (btnEditar.Name == "Cancelar")
             {
-                editar();
-                cargarDatos();
-                dataGridView1.DataSource = DT;
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
+                btnEliminar.Visible = true;
+                btnEditar.Name = "Editar";
+                bloquearControladores(true);
+                accion = ' ';
+                c = 0;
+                limpiarTextBox();
+            }
+            else if (!(txtDescripcion.Text == ""))
+            {
+
+                btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.guardar;
+                btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.cancelar;
+                btnEditar.Name = "Cancelar";
+                btnEliminar.Visible = false;
+
+                bloquearControladores(false);
+                c = 2;
+            }
+            else
+            {
+                MessageBox.Show("Elija el elemento que desea editar");
             }
         }
 
@@ -318,6 +455,8 @@ namespace DEPRECIACION2._0
 
             switch (vidaUtil)
             {
+                case 0: nn = " "; 
+                    break;
                 case 4: nn = "25";
                     break;
                 case 5: nn = "20";

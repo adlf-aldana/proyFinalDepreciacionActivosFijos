@@ -100,11 +100,8 @@ C:\Users\c0d3\Documents\git\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACI
 C:\Users\c0d3\Documents\git\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\RdlCompile.cache
 C:\Users\c0d3\Documents\git\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\RdlCompile.compiled
 C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\bin\Debug\DEPRECIACION2.0.exe.config
-C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.exe
-C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.pdb
 C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\bin\Debug\DEPRECIACION2.0.exe
 C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\bin\Debug\DEPRECIACION2.0.pdb
-C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.csprojResolveAssemblyReference.cache
 C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.ACTIVOS.resources
 C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.BUSCAR_PERSONAL.resources
 C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.BUSCAR_RUBRO.resources
@@ -126,3 +123,6 @@ C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActiv
 C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.csproj.GenerateResource.Cache
 C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\RdlCompile.cache
 C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\RdlCompile.compiled
+C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.exe
+C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.pdb
+C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.csprojResolveAssemblyReference.cache
