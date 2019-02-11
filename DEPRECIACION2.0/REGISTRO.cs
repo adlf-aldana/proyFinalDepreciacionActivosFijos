@@ -53,6 +53,7 @@ namespace DEPRECIACION2._0
         {
             dt = new DataTable();
             strCmd = "select * from registro";
+            //strCmd = "select activoFijo.CODIGO_ACTIVO, activoFijo.DESCRIPCION, recursosHumanos.CiPersonal,ubicacion.area, registro.fechaRegistro,registro.InicioUFV,registro.finalUFV from activoFijo inner join registro on registro.idActivoFijo=activoFijo.ID_ACTIVO INNER JOIN recursosHumanos ON registro.idPersonal=recursosHumanos.idCliente INNER JOIN ubicacion ON registro.idUbicacion=ubicacion.id_ubicacion";
             sqlCmd = new SqlCommand(strCmd, sqlCon);
             sqlDa = new SqlDataAdapter(sqlCmd);
             sqlDa.Fill(dt);
@@ -98,6 +99,7 @@ namespace DEPRECIACION2._0
         {
             actualizarTabla();
             registroDataGridView.DataSource = dt;
+            
             actualizarTabla1();
             idActivoFijoComboBox.DisplayMember = "CODIGO_ACTIVO";
             idActivoFijoComboBox.ValueMember = "CODIGO_ACTIVO";
@@ -300,6 +302,7 @@ namespace DEPRECIACION2._0
             }
             catch (SqlException)
             {
+                MessageBox.Show(label6.Text + label7.Text + label4.Text+finalUFVTextBox.Text+inicioUFVTextBox.Text);
                 MessageBox.Show("ERROR: NO SE INSERTO VALORES", "advertencia");
                 return false;
             }

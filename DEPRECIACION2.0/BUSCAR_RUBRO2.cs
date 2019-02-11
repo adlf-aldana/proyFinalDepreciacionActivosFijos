@@ -59,13 +59,15 @@ namespace DEPRECIACION2._0
             {
                 if (salida_datos.Length == 0)
                 {
-                    //salida_datos = "(descripcion LIKE '%"+palabra+"%' OR vida_util LIKE '%"+palabra+"%' OR Proc_DEPRECIACION LIKE '%"+palabra+"%' OR total '%"+palabra+"%')";
+                   // salida_datos = "(descripcion LIKE '%"+palabra+"%' OR vida_util LIKE '%"+palabra+"%' OR Proc_DEPRECIACION LIKE '%"+palabra+"%' OR total '%"+palabra+"%')";
                     salida_datos = "(descripcion LIKE '%" + palabra + "%')";
                 }
                 else
                 {
-                  //  salida_datos += " AND (descripcion LIKE '%" + palabra + "%' OR vida_util LIKE '%" + palabra + "%' OR Proc_DEPRECIACION LIKE '%" + palabra + "%' OR total '%" + palabra + "%')";
-                    salida_datos = "(descripcion LIKE '%" + palabra + "%')";
+                   //salida_datos += " OR (descripcion LIKE '%" + palabra + "%' OR vida_util LIKE '%" + palabra + "%' OR Proc_DEPRECIACION LIKE '%" + palabra + "%' OR total '%" + palabra + "%')";
+                    salida_datos += "AND(descripcion LIKE '%" + palabra + "%')";
+                    //salida_datos += "AND (id_rubro LIKE '%" + palabra + "%' OR descripcion LIKE '%" + palabra + "%')";
+
                 }
             }
             this.mifiltro.RowFilter = salida_datos;

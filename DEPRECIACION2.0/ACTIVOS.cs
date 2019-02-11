@@ -365,7 +365,7 @@ namespace DEPRECIACION2._0
                     {
                         if (camposCompletos())
                         {
-                            if (MessageBox.Show("¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            if (MessageBox.Show("VERIFIQUE QUE TODOS LOS CAMPOS ESTEN CORRECTOS \n ¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             {
                                 btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
                                 btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
@@ -443,12 +443,12 @@ namespace DEPRECIACION2._0
             {
                 strCmd = "DELETE FROM activoFijo WHERE ID_ACTIVO='" + dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["ID_ACTIVO"].Value.ToString() + "'" + "AND ID_RUBRO='" + dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["ID_RUBRO"].Value.ToString() + "'";
                 ejecutarConsulta(strCmd);
-                MessageBox.Show("BORRADO CORRECTAMENTE", "AVISO");
+                MessageBox.Show("SE ELIMINO CORRECTAMENTE", "AVISO");
                 return true;
             }
             catch (SqlException)
             {
-                MessageBox.Show("NO SE PUDO ELIMINAR EL REGISTRO", "Error");
+                MessageBox.Show("ERROR!!!! \n NO SE PUDO ELIMINAR EL REGISTRO PORQUE TIENE ASIGNADO UN REGISTRO", "Error");
                 return false;
             }
         }
@@ -460,7 +460,7 @@ namespace DEPRECIACION2._0
         {
             if (camposCompletos())
             {
-                if (MessageBox.Show("¿Esta seguro que desea eliminar el registro? \n"+"jsksks", "Eliminar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("¿Esta seguro que desea eliminar el registro? \n"+"Codigo Activo: "+txtCodActivo.Text+"\n Descripcion: "+txtDescripActivo.Text+"\n Procedencia: "+txtProcedencia.Text+"\n Costo de compra: "+txtValorCompra.Text, "Eliminar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     borrar();
                     cargarDatos();

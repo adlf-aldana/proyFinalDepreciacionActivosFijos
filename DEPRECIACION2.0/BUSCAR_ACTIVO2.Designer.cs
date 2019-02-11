@@ -39,9 +39,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(201, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(398, 17);
+            this.label1.Size = new System.Drawing.Size(377, 17);
             this.label1.TabIndex = 8;
-            this.label1.Text = "INTRODUZCA NOMBRE DEL ACTIVO O CODIGO A BUSCAR:";
+            this.label1.Text = "INTRODUZCA LA DESCRIPCION DEL ACTIVO A BUSCAR:";
             // 
             // dgvFiltro
             // 

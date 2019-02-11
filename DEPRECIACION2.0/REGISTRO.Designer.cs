@@ -329,7 +329,6 @@
             this.label6.Size = new System.Drawing.Size(46, 17);
             this.label6.TabIndex = 50;
             this.label6.Text = "label6";
-            this.label6.Visible = false;
             // 
             // label7
             // 
@@ -340,7 +339,6 @@
             this.label7.Size = new System.Drawing.Size(46, 17);
             this.label7.TabIndex = 51;
             this.label7.Text = "label7";
-            this.label7.Visible = false;
             // 
             // REGISTRO
             // 

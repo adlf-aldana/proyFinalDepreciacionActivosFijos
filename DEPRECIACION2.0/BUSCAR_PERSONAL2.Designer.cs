@@ -39,9 +39,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(207, 98);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(380, 17);
+            this.label1.Size = new System.Drawing.Size(349, 17);
             this.label1.TabIndex = 11;
-            this.label1.Text = "INTRODUZCA NOMBRE DEL PERSONAL O CI A BUSCAR:";
+            this.label1.Text = "INTRODUZCA NOMBRE DEL PERSONAL A BUSCAR:";
             // 
             // dgvFiltro
             // 

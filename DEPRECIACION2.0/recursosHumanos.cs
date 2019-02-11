@@ -247,7 +247,7 @@ namespace DEPRECIACION2._0
                     {
                         if (camposCompletos())
                         {
-                            if (MessageBox.Show("¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            if (MessageBox.Show("VERIFIQUE QUE TODOS LOS CAMPOS ESTEN CORRECTOS \n ¿Esta seguro que desea editar el registro?", "Editar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             {
                                 btnAgregar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.agregar;
                                 btnEditar.BackgroundImage = DEPRECIACION2._0.Properties.Resources.editar;
