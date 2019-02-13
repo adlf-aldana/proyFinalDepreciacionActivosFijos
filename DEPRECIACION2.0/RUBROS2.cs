@@ -362,7 +362,7 @@ namespace DEPRECIACION2._0
         {
             if (txtDescripcion.Text != "")
             {
-                if (MessageBox.Show("¿Esta seguro que desea eliminar " + txtDescripcion.Text + "?", "Eliminar registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("¿Esta seguro que desea eliminar el siguente registro registro?\n\n"+"Descripcion: " + txtDescripcion.Text +"\n"+"Años de Vida util: "+txtAnios.Text+"\n"+"Coeficiente de Depreciacion: "+txtCoeficiente.Text, "Eliminar registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     borrar();
                     cargarDatos();

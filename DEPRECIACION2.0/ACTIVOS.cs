@@ -128,7 +128,7 @@ namespace DEPRECIACION2._0
          *********************************/
         private Boolean camposCompletos()
         {
-            if (txtCodRubro.Text.Equals("") || txtCodActivo.Text.Equals("") || txtDescripActivo.Text.Equals(""))
+            if (txtCodRubro.Text.Equals("") || txtCodActivo.Text.Equals("") || txtDescripActivo.Text.Equals("")|| txtValorCompra.Text.Equals(""))
             {
                 return false;
             }
@@ -460,7 +460,7 @@ namespace DEPRECIACION2._0
         {
             if (camposCompletos())
             {
-                if (MessageBox.Show("¿Esta seguro que desea eliminar el registro?", "Eliminar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("¿Esta seguro que desea eliminar el registro? \n"+"jsksks", "Eliminar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     borrar();
                     cargarDatos();

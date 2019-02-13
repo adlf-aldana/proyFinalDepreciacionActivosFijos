@@ -473,7 +473,7 @@ namespace DEPRECIACION2._0
          *****************/
         private void button3_Click_1(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Esta seguro que desea eliminar el registro?", "Eliminar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("¿Esta seguro que desea eliminar el siguente registro registro?\n\n"+"CI: "+ciPersonalTextBox.Text+"\n Nombres: "+nombresTextBox.Text+"\n Apellidos: "+apellidoPatTextBox.Text+" "+apellidoMatTextBox.Text+"\n Direccion: "+dirTextBox.Text+"\n Profesion: "+profesTextBox.Text+"\n Telefono: "+emailTextBox.Text+"\n Cargo: "+cargoComboBox.Text, "Eliminar Registro", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 borrar();
                 cargarDatos();
@@ -557,6 +557,7 @@ namespace DEPRECIACION2._0
                 dirTextBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Dir"].Value.ToString();
                 profesTextBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Profes"].Value.ToString();
                 emailTextBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Email"].Value.ToString();
+                cargoComboBox.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Cargo"].Value.ToString();
 
             }
         }

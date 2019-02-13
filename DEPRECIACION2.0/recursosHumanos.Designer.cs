@@ -49,12 +49,12 @@
             this.dirTextBox = new System.Windows.Forms.TextBox();
             this.profesTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.cargoComboBox = new System.Windows.Forms.ComboBox();
             this.procedenciaComboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.cargoComboBox = new System.Windows.Forms.TextBox();
             sexoLabel = new System.Windows.Forms.Label();
             ciPersonalLabel = new System.Windows.Forms.Label();
             nombresLabel = new System.Windows.Forms.Label();
@@ -73,9 +73,10 @@
             // 
             sexoLabel.AutoSize = true;
             sexoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            sexoLabel.Location = new System.Drawing.Point(265, 364);
+            sexoLabel.Location = new System.Drawing.Point(353, 448);
+            sexoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             sexoLabel.Name = "sexoLabel";
-            sexoLabel.Size = new System.Drawing.Size(48, 17);
+            sexoLabel.Size = new System.Drawing.Size(56, 20);
             sexoLabel.TabIndex = 52;
             sexoLabel.Text = "Sexo:";
             // 
@@ -83,9 +84,10 @@
             // 
             ciPersonalLabel.AutoSize = true;
             ciPersonalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            ciPersonalLabel.Location = new System.Drawing.Point(207, 257);
+            ciPersonalLabel.Location = new System.Drawing.Point(276, 316);
+            ciPersonalLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             ciPersonalLabel.Name = "ciPersonalLabel";
-            ciPersonalLabel.Size = new System.Drawing.Size(96, 17);
+            ciPersonalLabel.Size = new System.Drawing.Size(113, 20);
             ciPersonalLabel.TabIndex = 32;
             ciPersonalLabel.Text = "Ci Personal:";
             // 
@@ -93,9 +95,10 @@
             // 
             nombresLabel.AutoSize = true;
             nombresLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nombresLabel.Location = new System.Drawing.Point(207, 283);
+            nombresLabel.Location = new System.Drawing.Point(276, 348);
+            nombresLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             nombresLabel.Name = "nombresLabel";
-            nombresLabel.Size = new System.Drawing.Size(77, 17);
+            nombresLabel.Size = new System.Drawing.Size(90, 20);
             nombresLabel.TabIndex = 35;
             nombresLabel.Text = "Nombres:";
             // 
@@ -103,9 +106,10 @@
             // 
             apellidoPatLabel.AutoSize = true;
             apellidoPatLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            apellidoPatLabel.Location = new System.Drawing.Point(207, 309);
+            apellidoPatLabel.Location = new System.Drawing.Point(276, 380);
+            apellidoPatLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             apellidoPatLabel.Name = "apellidoPatLabel";
-            apellidoPatLabel.Size = new System.Drawing.Size(133, 17);
+            apellidoPatLabel.Size = new System.Drawing.Size(153, 20);
             apellidoPatLabel.TabIndex = 37;
             apellidoPatLabel.Text = "Apellido Paterno:";
             // 
@@ -113,9 +117,10 @@
             // 
             apellidoMatLabel.AutoSize = true;
             apellidoMatLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            apellidoMatLabel.Location = new System.Drawing.Point(207, 335);
+            apellidoMatLabel.Location = new System.Drawing.Point(276, 412);
+            apellidoMatLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             apellidoMatLabel.Name = "apellidoMatLabel";
-            apellidoMatLabel.Size = new System.Drawing.Size(135, 17);
+            apellidoMatLabel.Size = new System.Drawing.Size(156, 20);
             apellidoMatLabel.TabIndex = 41;
             apellidoMatLabel.Text = "Apellido Materno:";
             // 
@@ -123,9 +128,10 @@
             // 
             dirLabel.AutoSize = true;
             dirLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dirLabel.Location = new System.Drawing.Point(639, 254);
+            dirLabel.Location = new System.Drawing.Point(852, 313);
+            dirLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             dirLabel.Name = "dirLabel";
-            dirLabel.Size = new System.Drawing.Size(81, 17);
+            dirLabel.Size = new System.Drawing.Size(96, 20);
             dirLabel.TabIndex = 46;
             dirLabel.Text = "Dirección:";
             // 
@@ -133,9 +139,10 @@
             // 
             profesLabel.AutoSize = true;
             profesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            profesLabel.Location = new System.Drawing.Point(639, 280);
+            profesLabel.Location = new System.Drawing.Point(852, 345);
+            profesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             profesLabel.Name = "profesLabel";
-            profesLabel.Size = new System.Drawing.Size(82, 17);
+            profesLabel.Size = new System.Drawing.Size(95, 20);
             profesLabel.TabIndex = 48;
             profesLabel.Text = "Profesion:";
             // 
@@ -143,9 +150,10 @@
             // 
             emailLabel.AutoSize = true;
             emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            emailLabel.Location = new System.Drawing.Point(639, 306);
+            emailLabel.Location = new System.Drawing.Point(852, 377);
+            emailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(77, 17);
+            emailLabel.Size = new System.Drawing.Size(87, 20);
             emailLabel.TabIndex = 50;
             emailLabel.Text = "Telefono:";
             // 
@@ -153,9 +161,10 @@
             // 
             cargoLabel.AutoSize = true;
             cargoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            cargoLabel.Location = new System.Drawing.Point(639, 332);
+            cargoLabel.Location = new System.Drawing.Point(852, 409);
+            cargoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             cargoLabel.Name = "cargoLabel";
-            cargoLabel.Size = new System.Drawing.Size(56, 17);
+            cargoLabel.Size = new System.Drawing.Size(65, 20);
             cargoLabel.TabIndex = 51;
             cargoLabel.Text = "Cargo:";
             // 
@@ -167,9 +176,10 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEliminar.Location = new System.Drawing.Point(641, 108);
+            this.btnEliminar.Location = new System.Drawing.Point(855, 133);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(116, 124);
+            this.btnEliminar.Size = new System.Drawing.Size(155, 153);
             this.btnEliminar.TabIndex = 12;
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.button3_Click_1);
@@ -182,9 +192,10 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEditar.Location = new System.Drawing.Point(493, 109);
+            this.btnEditar.Location = new System.Drawing.Point(657, 134);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(116, 124);
+            this.btnEditar.Size = new System.Drawing.Size(155, 153);
             this.btnEditar.TabIndex = 11;
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.button2_Click_1);
@@ -193,9 +204,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(356, 59);
+            this.label1.Location = new System.Drawing.Point(475, 73);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(384, 37);
+            this.label1.Size = new System.Drawing.Size(480, 46);
             this.label1.TabIndex = 53;
             this.label1.Text = "RECURSOS HUMANOS";
             // 
@@ -206,77 +218,72 @@
             this.sexoComboBox.Items.AddRange(new object[] {
             "M",
             "F"});
-            this.sexoComboBox.Location = new System.Drawing.Point(347, 360);
+            this.sexoComboBox.Location = new System.Drawing.Point(463, 443);
+            this.sexoComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.sexoComboBox.Name = "sexoComboBox";
-            this.sexoComboBox.Size = new System.Drawing.Size(121, 21);
+            this.sexoComboBox.Size = new System.Drawing.Size(160, 24);
             this.sexoComboBox.TabIndex = 5;
             // 
             // ciPersonalTextBox
             // 
-            this.ciPersonalTextBox.Location = new System.Drawing.Point(346, 256);
+            this.ciPersonalTextBox.Location = new System.Drawing.Point(461, 315);
+            this.ciPersonalTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ciPersonalTextBox.Name = "ciPersonalTextBox";
-            this.ciPersonalTextBox.Size = new System.Drawing.Size(162, 20);
+            this.ciPersonalTextBox.Size = new System.Drawing.Size(215, 22);
             this.ciPersonalTextBox.TabIndex = 0;
             this.ciPersonalTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ciPersonalTextBox_KeyPress_1);
             // 
             // nombresTextBox
             // 
-            this.nombresTextBox.Location = new System.Drawing.Point(346, 282);
+            this.nombresTextBox.Location = new System.Drawing.Point(461, 347);
+            this.nombresTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.nombresTextBox.Name = "nombresTextBox";
-            this.nombresTextBox.Size = new System.Drawing.Size(162, 20);
+            this.nombresTextBox.Size = new System.Drawing.Size(215, 22);
             this.nombresTextBox.TabIndex = 2;
             this.nombresTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nombresTextBox_KeyPress_1);
             // 
             // apellidoPatTextBox
             // 
-            this.apellidoPatTextBox.Location = new System.Drawing.Point(346, 308);
+            this.apellidoPatTextBox.Location = new System.Drawing.Point(461, 379);
+            this.apellidoPatTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.apellidoPatTextBox.Name = "apellidoPatTextBox";
-            this.apellidoPatTextBox.Size = new System.Drawing.Size(162, 20);
+            this.apellidoPatTextBox.Size = new System.Drawing.Size(215, 22);
             this.apellidoPatTextBox.TabIndex = 3;
             this.apellidoPatTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apellidoPatTextBox_KeyPress_1);
             // 
             // apellidoMatTextBox
             // 
-            this.apellidoMatTextBox.Location = new System.Drawing.Point(346, 334);
+            this.apellidoMatTextBox.Location = new System.Drawing.Point(461, 411);
+            this.apellidoMatTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.apellidoMatTextBox.Name = "apellidoMatTextBox";
-            this.apellidoMatTextBox.Size = new System.Drawing.Size(162, 20);
+            this.apellidoMatTextBox.Size = new System.Drawing.Size(215, 22);
             this.apellidoMatTextBox.TabIndex = 4;
             this.apellidoMatTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apellidoMatTextBox_KeyPress_1);
             // 
             // dirTextBox
             // 
-            this.dirTextBox.Location = new System.Drawing.Point(721, 250);
+            this.dirTextBox.Location = new System.Drawing.Point(961, 308);
+            this.dirTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.dirTextBox.Name = "dirTextBox";
-            this.dirTextBox.Size = new System.Drawing.Size(121, 20);
+            this.dirTextBox.Size = new System.Drawing.Size(160, 22);
             this.dirTextBox.TabIndex = 6;
             // 
             // profesTextBox
             // 
-            this.profesTextBox.Location = new System.Drawing.Point(721, 276);
+            this.profesTextBox.Location = new System.Drawing.Point(961, 340);
+            this.profesTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.profesTextBox.Name = "profesTextBox";
-            this.profesTextBox.Size = new System.Drawing.Size(121, 20);
+            this.profesTextBox.Size = new System.Drawing.Size(160, 22);
             this.profesTextBox.TabIndex = 7;
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(721, 302);
+            this.emailTextBox.Location = new System.Drawing.Point(961, 372);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(121, 20);
+            this.emailTextBox.Size = new System.Drawing.Size(160, 22);
             this.emailTextBox.TabIndex = 8;
             this.emailTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.emailTextBox_KeyPress);
-            // 
-            // cargoComboBox
-            // 
-            this.cargoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cargoComboBox.FormattingEnabled = true;
-            this.cargoComboBox.Items.AddRange(new object[] {
-            "Contador",
-            "Auxiliar en Contaduria",
-            "Gerente"});
-            this.cargoComboBox.Location = new System.Drawing.Point(721, 328);
-            this.cargoComboBox.Name = "cargoComboBox";
-            this.cargoComboBox.Size = new System.Drawing.Size(121, 21);
-            this.cargoComboBox.TabIndex = 9;
             // 
             // procedenciaComboBox
             // 
@@ -292,18 +299,20 @@
             "BN.",
             "PA.",
             "TJ,"});
-            this.procedenciaComboBox.Location = new System.Drawing.Point(514, 254);
+            this.procedenciaComboBox.Location = new System.Drawing.Point(685, 313);
+            this.procedenciaComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.procedenciaComboBox.Name = "procedenciaComboBox";
-            this.procedenciaComboBox.Size = new System.Drawing.Size(69, 21);
+            this.procedenciaComboBox.Size = new System.Drawing.Size(91, 24);
             this.procedenciaComboBox.TabIndex = 1;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 388);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 478);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1063, 348);
+            this.dataGridView1.Size = new System.Drawing.Size(1417, 428);
             this.dataGridView1.TabIndex = 49;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.recursosHumanosDataGridView_CellClick_1);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.recursosHumanosDataGridView_CellContentClick_1);
@@ -313,9 +322,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1085, 32);
+            this.panel1.Size = new System.Drawing.Size(1447, 39);
             this.panel1.TabIndex = 85;
             // 
             // pictureBox1
@@ -323,10 +332,10 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1055, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(1407, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 32);
+            this.pictureBox1.Size = new System.Drawing.Size(40, 39);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
@@ -340,18 +349,28 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAgregar.Location = new System.Drawing.Point(346, 108);
+            this.btnAgregar.Location = new System.Drawing.Point(461, 133);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(116, 124);
+            this.btnAgregar.Size = new System.Drawing.Size(155, 153);
             this.btnAgregar.TabIndex = 10;
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cargoComboBox
+            // 
+            this.cargoComboBox.Location = new System.Drawing.Point(961, 409);
+            this.cargoComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.cargoComboBox.Name = "cargoComboBox";
+            this.cargoComboBox.Size = new System.Drawing.Size(160, 22);
+            this.cargoComboBox.TabIndex = 9;
+            // 
             // recursosHumanos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 748);
+            this.ClientSize = new System.Drawing.Size(1447, 921);
+            this.Controls.Add(this.cargoComboBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
@@ -374,11 +393,10 @@
             this.Controls.Add(emailLabel);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(cargoLabel);
-            this.Controls.Add(this.cargoComboBox);
             this.Controls.Add(this.procedenciaComboBox);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "recursosHumanos";
             this.Text = "recursosHumanos";
             this.Load += new System.EventHandler(this.recursosHumanos_Load_1);
@@ -403,11 +421,11 @@
         private System.Windows.Forms.TextBox dirTextBox;
         private System.Windows.Forms.TextBox profesTextBox;
         private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.ComboBox cargoComboBox;
         private System.Windows.Forms.ComboBox procedenciaComboBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.TextBox cargoComboBox;
     }
 }

@@ -126,3 +126,34 @@ C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActiv
 C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.exe
 C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.pdb
 C:\Users\c0d3\Downloads\Proyecto final soft 2\Codigos\SistemadeDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.csprojResolveAssemblyReference.cache
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\bin\Debug\DEPRECIACION2.0.exe.config
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.exe
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.pdb
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\bin\Debug\DEPRECIACION2.0.exe
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\bin\Debug\DEPRECIACION2.0.pdb
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.csprojResolveAssemblyReference.cache
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.ACTIVOS.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.BUSCAR_PERSONAL.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.BUSCAR_RUBRO.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.BUSCAR_UBICACION.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.BUSCAR_ACTIVO.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.DEPRECIACION.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.Form1.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.informaPersonal.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.informeActivoFijo.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.informeUbicacion.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.INICIO.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.LOGIN.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.Properties.Resources.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.recursosHumanos.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.REGISTRO.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.RUBROS2.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.UBICACION.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.usuarios.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2.0.csproj.GenerateResource.Cache
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\RdlCompile.cache
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\RdlCompile.compiled
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.BUSCAR_RUBRO2.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.BUSCAR_ACTIVO2.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.BUSCAR_PERSONAL2.resources
+E:\ING. DE SISTEMAS\2-2018\ING. DE SOFTWARE II\VERANO SOFT\proyFinalDepreciacionActivosFijos\DEPRECIACION2.0\obj\Debug\DEPRECIACION2._0.BUSCAR_UBICACION2.resources

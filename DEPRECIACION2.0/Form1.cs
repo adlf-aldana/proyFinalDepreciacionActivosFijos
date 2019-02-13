@@ -377,19 +377,19 @@ namespace DEPRECIACION2._0
 
         private void button6_Click(object sender, EventArgs e)
         {
-            BUSCAR_RUBRO abrir = new BUSCAR_RUBRO();
+            BUSCAR_RUBRO2 abrir = new BUSCAR_RUBRO2();
             abrir.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            BUSCAR_ACTIVO abrir = new BUSCAR_ACTIVO();
+            BUSCAR_ACTIVO2 abrir = new BUSCAR_ACTIVO2();
             abrir.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            BUSCAR_UBICACION abrir = new BUSCAR_UBICACION();
+            BUSCAR_UBICACION2 abrir = new BUSCAR_UBICACION2();
             abrir.Show();
 
         }
@@ -401,7 +401,7 @@ namespace DEPRECIACION2._0
 
         private void button3_Click(object sender, EventArgs e)
         {
-            BUSCAR_PERSONAL abrir = new BUSCAR_PERSONAL();
+            BUSCAR_PERSONAL2 abrir = new BUSCAR_PERSONAL2();
             abrir.Show();
         }
 

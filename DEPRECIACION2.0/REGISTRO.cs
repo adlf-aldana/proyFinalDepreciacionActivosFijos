@@ -152,7 +152,7 @@ namespace DEPRECIACION2._0
        // string respuesta1;
         public string SeleccionaIdPersonal()
         {
-            var query = "select idCliente from recursosHumanos where CiPersonal='" + idPersonalComboBox.Text + "'";
+            var query = "select Nombres from recursosHumanos where CiPersonal='" + idPersonalComboBox.Text + "'";
             using (SqlCommand cmd = new SqlCommand(query, sqlCon))
             {
                 SqlDataReader read = cmd.ExecuteReader();
@@ -160,7 +160,7 @@ namespace DEPRECIACION2._0
                 {
                     while (read.Read())
                     {
-                        respuesta = read["idCliente"].ToString();
+                        respuesta = read["Nombres"].ToString();
                     }
                     return respuesta;
                 }
@@ -171,12 +171,59 @@ namespace DEPRECIACION2._0
             }
         }
 
+        public string SeleccionaApellidoPat()
+        {
+            var query = "select ApellidoPat from recursosHumanos where CiPersonal='" + idPersonalComboBox.Text + "'";
+            using (SqlCommand cmd = new SqlCommand(query, sqlCon))
+            {
+                SqlDataReader read = cmd.ExecuteReader();
+                if (read.HasRows)
+                {
+                    while (read.Read())
+                    {
+                        respuesta = read["ApellidoPat"].ToString();
+                    }
+                    return respuesta;
+                }
+                else
+                {
+                    throw new Exception("NO SE ENCONTRO EL DETERMINADO ACTIVO");
+                }
+            }
+        }
+
+
         private void idPersonalComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label3.Text = SeleccionaIdPersonal();
+            string Nombre=SeleccionaIdPersonal();
+            string Apellido=SeleccionaApellidoPat();
+
+            label3.Text = Nombre + " " + Apellido;
+            label7.Text = SeleccionaIdPersonal1();
         }
 
         public string SeleccionaIdActivo()
+        {
+            var query = "select DESCRIPCION from activoFijo where CODIGO_ACTIVO='" + idActivoFijoComboBox.Text + "'";
+            using (SqlCommand cmd = new SqlCommand(query, sqlCon))
+            {
+                SqlDataReader read = cmd.ExecuteReader();
+                if (read.HasRows)
+                {
+                    while (read.Read())
+                    {
+                        respuesta = read["DESCRIPCION"].ToString();
+                    }
+                    return respuesta;
+                }
+                else
+                {
+                    throw new Exception("NO SE ENCONTRO EL DETERMINADO ACTIVO");
+                }
+            }
+        }
+
+        public string SeleccionaId()
         {
             var query = "select ID_ACTIVO from activoFijo where CODIGO_ACTIVO='" + idActivoFijoComboBox.Text + "'";
             using (SqlCommand cmd = new SqlCommand(query, sqlCon))
@@ -201,9 +248,30 @@ namespace DEPRECIACION2._0
         private void idActivoFijoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             label5.Text = SeleccionaIdActivo();
+            label6.Text = SeleccionaId();
+
         }
 
-
+        public string SeleccionaIdPersonal1()
+        {
+            var query = "select idCliente from recursosHumanos where CiPersonal='" + idPersonalComboBox.Text + "'";
+            using (SqlCommand cmd = new SqlCommand(query, sqlCon))
+            {
+                SqlDataReader read = cmd.ExecuteReader();
+                if (read.HasRows)
+                {
+                    while (read.Read())
+                    {
+                        respuesta = read["idCliente"].ToString();
+                    }
+                    return respuesta;
+                }
+                else
+                {
+                    throw new Exception("NO SE ENCONTRO EL DETERMINADO ACTIVO");
+                }
+            }
+        }
 
         private Boolean camposCompletos()
         {
@@ -221,21 +289,24 @@ namespace DEPRECIACION2._0
         {
             try
             {
+       
+                    strCmd = "insert into registro(idActivoFijo,idPersonal,idUbicacion,fechaRegistro,InicioUFV,finalUFV) VALUES (" + label6.Text + "," + label7.Text + "," + label4.Text + ",'" + label2.Text + "','" + UFVI + "','" + UFVF+ "')";
+                    sqlCmd = new SqlCommand(strCmd, sqlCon);
+                    sqlCmd.ExecuteNonQuery();
+                    MessageBox.Show("REGISTRO INSERTADO EXITOSAMENTE", "Aviso");
+                    return true;
                 
-                strCmd = "insert into registro(idActivoFijo,idPersonal,idUbicacion,fechaRegistro,InicioUFV,finalUFV) VALUES (" + label5.Text + "," + label3.Text + "," + label4.Text + ",'" + label2.Text + "','" + inicioUFVTextBox.Text + "','" + finalUFVTextBox.Text + "')";
-                sqlCmd = new SqlCommand(strCmd, sqlCon);
-                sqlCmd.ExecuteNonQuery();
-                MessageBox.Show("REGISTRO INSERTADO EXITOSAMENTE", "Aviso");
-                return true;
+              
             }
             catch (SqlException)
             {
-                MessageBox.Show(label5.Text + label3.Text + label4.Text);
                 MessageBox.Show("ERROR: NO SE INSERTO VALORES", "advertencia");
                 return false;
             }
         }
 
+        double UFVI = 0;
+        double UFVF = 0;
         /****************
          * BOTON AGREGAR
          ****************/
@@ -243,11 +314,39 @@ namespace DEPRECIACION2._0
         {
             if (camposCompletos())
             {
-                guardar();
-                actualizarTabla();
-                registroDataGridView.DataSource = dt;
-                inicioUFVTextBox.Clear();
-                finalUFVTextBox.Clear();
+                UFVI = Convert.ToDouble(inicioUFVTextBox.Text);
+                UFVF = Convert.ToDouble(finalUFVTextBox.Text);
+
+
+
+                if (UFVF > 1 && UFVF < 2 && UFVI > 1 && UFVI < 2)
+                {
+                    if (UFVF > UFVI)
+                    {
+
+
+                        guardar();
+                        actualizarTabla();
+                        registroDataGridView.DataSource = dt;
+                        inicioUFVTextBox.Clear();
+                        finalUFVTextBox.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("VALOR UFVF TIENE QUE SER MENOR AL VALOR UFVI ", "ERROR");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("VALORES DE LOS UFVS INCORRECTOS, VALORES TIENE QUE SER MAYOR A 1 Y NENOR QUE 2 ", "ERROR");
+
+                }
+           
+
+
+
+
+               
             }
             else
             {
@@ -304,6 +403,28 @@ namespace DEPRECIACION2._0
             {
                 e.Handled = true;
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            BUSCAR_ACTIVO2 buscar = new BUSCAR_ACTIVO2();
+            buscar.Show();
+        }
+
+        private void idPersonalComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            actualizarTabla2();
+            idPersonalComboBox.DisplayMember = "CiPersonal";
+            idPersonalComboBox.ValueMember = "CiPersonal";
+            idPersonalComboBox.DataSource = dt2;
+        }
+
+        private void idActivoFijoComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            actualizarTabla1();
+            idActivoFijoComboBox.DisplayMember = "CODIGO_ACTIVO";
+            idActivoFijoComboBox.ValueMember = "CODIGO_ACTIVO";
+            idActivoFijoComboBox.DataSource = dt1;
         }
     }
 }

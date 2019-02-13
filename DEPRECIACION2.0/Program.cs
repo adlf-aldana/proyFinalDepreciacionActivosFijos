@@ -15,8 +15,8 @@ namespace DEPRECIACION2._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-                //Application.Run(new LOGIN());
-            Application.Run(new LOGIN());
+                //Application.Run(new INICIO());
+            Application.Run(new Form1());
         }
     }
 }
